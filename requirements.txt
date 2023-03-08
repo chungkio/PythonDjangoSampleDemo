@@ -1,4 +1,2 @@
+django==4.1.6
 fontawesomefree==6.3.0
-django-tinymce-4==0.0.27
-django-jquery==3.6.0
-social-auth-app-django==4.3.0
