@@ -1,0 +1,28 @@
+{% extends "pages/index.html" %}
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static "assets/css/profile-user.css" %}" type="text/css">
+{% endblock %}
+{% block content %}
+<div class="profile__main">
+    <div class="profile__box">
+        <div class="profile__main--container">
+            <div class="gradient">
+                <div class="content">
+                    <h2>ChungKio</h2>
+                    <p>28 years,Phu Tho,VN</p>
+                    <br>
+                    <p class="details">I am a developer working in Phu Tho.<br />User Interface Designer and front-end
+                        developer</p>
+                    <div class="icons">
+                        <a href=""><i class="fa-brands fa-facebook"></i></i></a>
+                        <a href=""><i class="fa-brands fa-twitter"></i></a>
+                        <a href=""><i class="fa-brands fa-instagram"></i></a>
+                        <a href=""><i class="fa-brands fa-github-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

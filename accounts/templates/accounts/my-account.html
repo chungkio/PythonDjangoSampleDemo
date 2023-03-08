@@ -1,0 +1,67 @@
+{% extends "pages/index.html" %}
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static "accounts/css/my-account.css" %}" type="text/css">
+{% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="wrapper">
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <img src="https://i.imgur.com/X2oObC4.png" alt="">
+                    </div>
+                    <div class="profile-body">
+                        <div class="author-img">
+                            <img src="https://i.imgur.com/4FbD7mF.png" alt="">
+                        </div>
+                        <div class="name">Robert smith</div>
+                        <div class="intro">
+                            <p>Robert smith is an enthsiastic and passionate story
+                                Teller.He loves to do different
+                                home-made things and share to the world.
+                            </p>
+                        </div>
+                        <div class="social-icon">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fab fa-behance"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fab fa-google-plus-g"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block javascript %}
+<script src="{% static 'accounts/js/account.js' %}" async defer></script>
+{% endblock %}

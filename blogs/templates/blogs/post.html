@@ -1,0 +1,21 @@
+{% extends "pages/index.html" %}
+ 
+{% block title %}{{post.title}}{% endblock %}
+{% block class__body %}class="post-detail post-{{post.id}}"{% endblock %}
+{% block content %}
+<div class="post__container">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="post__main">
+                    <h1 class="title"><a href="{% url 'blogs:post' post.slug %}">{{post.title}}</a></h1>
+                    <h6 class="date">on {{post.date}}</h6>
+                    <div class="post__content--box">
+                        {{post.body|safe|linebreaks}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

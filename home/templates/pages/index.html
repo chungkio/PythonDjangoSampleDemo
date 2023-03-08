@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{% block title %}CodeKìÓ{% endblock %}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Our project just needs Font Awesome Free's Solid and Brand files -->
+        <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="{% static "assets/css/bootstrap.min.css" %}" type="text/css">
+        <link rel="stylesheet" href="{% static "assets/css/base.css" %}" type="text/css">
+        <link rel="stylesheet" href="{% static "assets/css/home-list-post.css" %}" type="text/css">
+        {% block style %}{% endblock %}
+        <script src="{% static 'assets/js/jquery-3.6.3.min.js' %}"></script>
+        <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+
+    </head>
+    <body {% block class__body %}class="index"{% endblock %}">
+        {% include './header.html' %}
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <main>
+        {% block content %}
+            {% include './banner.html' %} 
+            {% include './shortcode-list-post.html' %}
+        {% endblock %}
+        </main>
+        {% include './footer.html' %}
+        {% include './loader.html' %}
+        {% block javascript %}
+            <script src="{% static 'assets/js/base.js' %}"></script>
+        {% endblock %}
+    </body>
+</html>

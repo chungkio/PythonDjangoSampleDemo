@@ -1,0 +1,52 @@
+{% extends "pages/index.html" %}
+{% load static %}
+{% block title %}Blogs{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{% static "blogs/css/blog.css" %}" type="text/css">
+{% endblock %}
+{% block class__body %}class="listing-post"{% endblock %}
+{% block content %}
+{% if Posts %}
+{{ request.user.is_authenticated }}
+<section class="container banner__blogs--list">
+   <div class="row">
+      <div class="col-12 col-md-12">
+         <div class="banner__blogs--box">
+            <div class="banner__icon-box">
+               <i class="fa-sharp fa-regular fa-gem"></i>
+            </div>
+            <div class="banner__icon-box-content">
+               <h3 class="banner__icon-box-title">
+                  Let's Get Started 
+               </h3>
+               <p class="banner__icon-box-description">
+                  Search for the tutorial you want to learn. </p>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+{% include './search-form.html' %}
+<section class="container blogs__list--post">
+   <div class="row blogs__post--box">
+      {% for post in Posts %}
+      <div class="col-12 col-md-6 col-lg-4 blogs__post--item">
+         <div class="blogs__post--item-box">
+            <a class="blogs__thumbnail__link" href="{% url 'blogs:post' post.slug %}">
+               <div class="blogs__post--item-thumbnail">
+                  <img src="{{ MEDIA_URL }}{{ post.images.url }}" />
+               </div>
+            </a>
+            <div class="blogs__post--item__text">
+               <h3 class="blogs__post--item__title"><a href="{% url 'blogs:post' post.slug %}">{{ post.title }}</a></h3>
+               <div class="blogs__post--item__excerpt">
+                  {{ post.body|striptags|truncatechars:200 }}
+               </div>
+            </div>
+         </div>
+      </div>
+      {% endfor %}
+   </div>
+</section>
+{% endif %}
+{% endblock %}

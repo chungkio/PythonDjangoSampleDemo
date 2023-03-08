@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --kio-color-primary: #2753E0;
+    --kio-color-secondary: #5275E6;
+    --kio-accent: #61CE70;
+    --kio-b818ea5: #7A7A7A;
+    --kio-13ab641: #F6F6F6;
+    --kio-88844c5: #E6ECFF;
+    --kio-font-family: "Poppins";
+    --kio-global-color-text: #050B1D;
+    --icon-size: 41px;
+}
+
+#site-header {
+    box-shadow: 0 4px 4px -4px rgb(1 38 76 / 22%);
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+body {
+    font-family: var(--kio-font-family);
+    padding-top: 100px;
+}
+
+header .navbar {
+    transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+    padding: 20px 0;
+    z-index: 99;
+}
+
+.site__header--logo-main {
+    display: flex;
+    align-items: center;
+}
+
+.site__header--logo-main img {
+    width: 50px;
+}
+
+.site__header--logo-main .site__name {
+    margin-bottom: 0;
+    font-weight: 600;
+    letter-spacing: -1px;
+    margin-left: 15px;
+}
+
+header .navbar .nav-item .nav-link {
+    font-family: var(--kio-font-family);
+    font-size: 25px;
+    font-weight: 400;
+    letter-spacing: -1px;
+    color: var(--kio-global-color-text);
+    fill: var(--kio-global-color-text);
+    padding: 13px 11px;
+}
+
+header .navbar .nav-item:last-child .nav-link {
+    padding-right: 0;
+}
+
+header .navbar .nav-item:hover .nav-link {
+    color: var(--kio-color-primary );
+}
+/* Banner */
+.banner__content--icon {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.banner__content-box {
+    align-items: center;
+    padding: 100px 0;
+}
+
+.banner-heading-title {
+    color: var(--kio-global-color-text);
+    font-family: var(--kio-font-family), Sans-serif;
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 72px;
+    letter-spacing: -1px;
+    word-spacing: 0px;
+    margin-bottom: 20px;
+}
+
+.banner-content-text {
+    color: var(--kio-global-color-text);
+    font-family: var(--kio-font-family), Sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: -1px;
+    margin-bottom: 50px;
+}
+
+.banner-button-link {
+    font-family: var(--kio-font-family), Sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    border-radius: 20px;
+    padding: 20px 40px;
+    background-color: var(--kio-color-secondary);
+}
+
+.banner-button-link:hover {
+    background-color: var(--kio-color-primary);
+}
+
+.banner__icon--list {
+    margin-top: 50px;
+    max-width: 450px;
+    width: 100%;
+}
+
+.banner__icon--list .icon--item {
+    font-size: 80px;
+}
+
+.icon--item.js {
+    color: #F2F236;
+    border-color: #F2F236;
+    text-align: center;
+}
+
+.icon--item.html5 {
+    color: #E08B27;
+    border-color: #E08B27;
+    text-align: center;
+}
+
+.icon--item.python {
+    color: #28DD93;
+    border-color: #28DD93;
+    text-align: center;
+}
+
+/* End Banner */
+
+/* Follow */
+.follow_site {
+    margin-bottom: 100px;
+}
+
+.container__follow {
+    transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+    padding: 40px 20px;
+    background-color: #E4EBFF;
+    border-radius: 25px;
+}
+
+.container__follow--row {
+    display: flex;
+    align-items: center;
+}
+
+.follow__list-icon {
+    display: flex;
+}
+
+.follow__item-icon {
+    margin-left: 40px;
+}
+
+.follow-text-only {
+    display: none;
+}
+
+.follow-grid-item {
+    font-size: var(--icon-size, 25px);
+}
+
+.follow-social-icon-youtube {
+    color: #FF3743;
+}
+
+.follow-social-icon-tiktok {
+    color: var(--kio-global-color-text);
+}
+
+.follow-icon {
+    text-decoration: none;
+}
+
+.follow-heading-title {
+    color: var(--kio-global-color-text);
+    font-family: var(--kio-font-family), Sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: -1px;
+    text-align: right;
+}
+
+/* End Follow */
+
+/* Footer */
+#site-footer {
+    transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+    margin-top: 50px;
+    margin-bottom: 0px;
+    padding: 60px 0px 50px 0px;
+    background-color: var(--kio-color-secondary);
+    text-align: center;
+    color: #FFFFFF;
+}
+.footer-heading-title {
+    font-family: var(--kio-font-family), Sans-serif;
+    font-weight: 600;
+    letter-spacing: -1px;
+    line-height: 1.25em;
+}
+/* End Footer */

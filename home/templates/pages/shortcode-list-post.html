@@ -1,0 +1,86 @@
+{% if Posts %}
+<section class="container home__list--post">
+    <div class="row home__post--box-heading">
+        <div class="col-12 col-md-12 col-lg-12 section__post--heading">
+            <h2 class="section-heading-title">What's new in codekìó</h2>
+            <p class="section-heading-content">Read the latest tutorials</p>
+        </div>
+    </div>
+    <div class="row home__post--box">
+        {% for post in Posts %}
+            {% include './item-post.html' with slug=post.slug img=post.images title=post.title content=post.body %}
+        {% endfor %}
+
+    </div>
+    <div class="row row-home__post--load-item">
+        <div class="col-12 home__post--load-item">
+            <button class="btn-load button__loadMore"><span>Load More</span></button>
+        </div>
+        {% csrf_token %}
+    </div>
+</section>
+<script>
+    $(document).ready(function () {
+        $('.button__loadMore').click(function () {
+            var _currentPost = $('.home__post--item').length;
+            console.log('Number: ',_currentPost);
+            if (_currentPost > 0) {
+                $.ajax({    
+                    url: '{% url 'homepage:loadMore' %}',
+                    type: 'POST',
+                    data: {
+                        'total_item': _currentPost,
+                        'csrfmiddlewaretoken': '{{ csrf_token }}'
+                    },
+                    dataType: 'json',
+                    beforeSend: function(){
+                        $('.site__loader').addClass('active');
+                    },
+                    success: function (data) {
+                        var _html = '';
+                        var _dataJson = $.parseJSON(data.posts);
+                        if(_dataJson){
+                            $.each(_dataJson, function (index, item) {
+                                var _content = item.fields.body
+                                var _contentResult = $(_content).text().substr(0, 200)+'...';
+                                {% comment %} _html += `{% include './item-post.html' with slug=item.fields.slug  img=item.fields.images  title=item.fields.title content=item.fields.body %}
+                                ` {% endcomment %}
+                                _html += `
+                                <div class="col-12 col-md-6 col-lg-4 home__post--item">
+                                    <div class="home__post--item-box">
+                                        <a class="home__thumbnail__link" href="/blogs/${ item.fields.slug }">
+                                            <div class="home__post--item-thumbnail">
+                                                <img src="/media/${ item.fields.images }" />
+                                            </div>
+                                        </a>
+                                        <div class="home__post--item__text">
+                                            <h3 class="home__post--item__title"><a href="/blogs/${ item.fields.slug }">${ item.fields.title }</a>
+                                            </h3>
+                                            <div class="home__post--item__excerpt">
+                                                ${ _contentResult }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                `
+                            });
+                            $('.home__post--box').append(_html);
+                            var _countItems = $('.home__post--item').length;
+                            if(_dataJson.totalResults = _countItems){
+                                $('.row-home__post--load-item').remove()
+                            }
+                            $('.site__loader').removeClass('active');
+                        }
+                       
+                    },
+                    error: function (err) {
+                        console.log('Err: ',err);
+                    }
+                });
+            }else{
+                $('.row-home__post--load-item').remove();
+            }
+        });
+    });
+</script>
+{% endif %}
