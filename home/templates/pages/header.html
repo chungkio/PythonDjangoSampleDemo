@@ -30,11 +30,11 @@
                         </a>
                         <ul class="dropdown-menu">
                             {% if request.user.is_authenticated %}
-                                <li><a class="dropdown-item" href="account/my-account">My account</a></li>
-                                <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                                <li><a class="dropdown-item" href="{% url 'account:my-account' %}">My account</a></li>
+                                <li><a class="dropdown-item" href="{% url 'account:logout' %}">Logout</a></li>
                              {% else %} 
-                                <li><a class="dropdown-item" href="/account">Login</a></li>
-                                <li><a class="dropdown-item" href="/account">Register</a></li>
+                                <li><a class="dropdown-item" href="{% url 'account:index' %}?action=login">Login</a></li>
+                                <li><a class="dropdown-item" href="{% url 'account:index' %}?action=register">Register</a></li>
                             {% endif %}
                         </ul>
                     </li>
