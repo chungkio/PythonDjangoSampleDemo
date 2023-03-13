@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Products,Categories
+from .models import Product,Categorie
 # Register your models here.
 
 @admin.action(description='Mark selected stories as published')
@@ -12,10 +12,10 @@ class ProductsAdmin(admin.ModelAdmin):
     search_fields = ['title']
     actions = [make_published]
 
-admin.site.register(Products, ProductsAdmin)
+admin.site.register(Product, ProductsAdmin)
 
 
 class CategoriesAdmin(admin.ModelAdmin):
     list_display = ['title']
 
-admin.site.register(Categories, CategoriesAdmin)
+admin.site.register(Categorie, CategoriesAdmin)

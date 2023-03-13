@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.db.models import Q
 from django.http import Http404
-from .models import Products
+from .models import Product
 
 # Create your views here.
 def list(request):
@@ -15,9 +15,9 @@ def list(request):
 
 
 def Products(request, slug):
-    Products = Products.objects.get(slug=slug)
+    Products = Product.objects.get(slug=slug)
     try:
-        Products = Products.objects.get(slug=slug)
+        Products = Product.objects.get(slug=slug)
     except Products.DoesNotExist:
         raise Http404("Product not found")
     

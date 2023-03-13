@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.text import slugify
+from tinymce.models import HTMLField 
 
 # Create your models here.
 STATUS_CHOICES = [
@@ -12,7 +13,7 @@ STATUS_CHOICES = [
 class Categories(models.Model):
     title = models.CharField(max_length=100)
     slug = models.SlugField(max_length=255, unique=True,blank=True)
-    description = models.TextField(blank=True)
+    description = HTMLField()
     image = models.ImageField(null=True,blank=True, upload_to='blogs/uploads/%Y/%m/%d/')
 
     def __str__(self):
@@ -27,7 +28,7 @@ class Post(models.Model):
     title = models.CharField(max_length=100)
     slug = models.SlugField(max_length=255, unique=True, blank=True)
     categories = models.ForeignKey(Categories, on_delete=models.CASCADE, null=True)
-    body = models.TextField()
+    body = HTMLField()
     images = models.ImageField(null=True, blank=True, upload_to='blogs/uploads/%Y/%m/%d/')
     status = models.CharField(max_length=1, choices=STATUS_CHOICES)
     date = models.DateTimeField(auto_now_add=True)
